@@ -27,9 +27,6 @@ import ReviewCard from './kits/ReviewCard.vue'
     margin: 0 auto 2rem auto;
 }
 
-h1 {
-    margin-bottom: 3rem;
-}
 
 .reviews-grid {
     display: grid;
