@@ -9,6 +9,17 @@ defineProps({
 
 <template>
   <section class="welcome">
+    <img
+      :src="'/welcome_image.webp'"
+      alt="Photography background"
+      class="welcome-bg"
+      loading="eager"
+      fetchpriority="high"
+      decoding="async"
+      width="1920"
+      height="1080"
+      style="aspect-ratio: 16/9"
+    />
     <div class="welcome-content">
       <h1>{{ title }}</h1>
       <p class="welcome_description">Welcome to our professional photography services</p>
@@ -20,15 +31,22 @@ defineProps({
 <style scoped>
 .welcome {
   min-height: 60vh;
+  position: relative;
   display: flex;
   align-items: center;
-  background: url("/welcome_image.jpg");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+  justify-content: center;
   color: white;
-  position: relative;
   overflow: hidden;
+}
+
+.welcome-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
 }
 
 .welcome-content {
@@ -36,6 +54,7 @@ defineProps({
   text-align: center;
   max-width: 800px;
   margin: 0 auto;
+  z-index: 1;
 }
 
 .welcome h1 {
@@ -66,44 +85,5 @@ defineProps({
 .welcome_button:hover {
   background-color: #006435;
   transform: translateY(-2px);
-}
-
-@media (max-width: 768px) {
-  .welcome {
-    height: 60vh;
-    min-height: 350px;
-    padding: 1rem;
-  }
-
-  .welcome h1 {
-    font-size: clamp(1.5rem, 8vw, 2.5rem);
-  }
-
-  .welcome_description {
-    font-size: clamp(1rem, 4vw, 1.2rem);
-  }
-
-  .welcome-content {
-    padding: 1rem;
-  }
-}
-
-@media (max-width: 500px) {
-  .welcome {
-    height: 80vh;
-    min-height: 400px;
-  }
-
-  .welcome h1 {
-    font-size: clamp(1.5rem, 10vw, 2rem);
-  }
-
-  .welcome_description {
-    font-size: clamp(1rem, 5vw, 1.1rem);
-  }
-
-  .welcome-content {
-    padding: 0.5rem;
-  }
 }
 </style>

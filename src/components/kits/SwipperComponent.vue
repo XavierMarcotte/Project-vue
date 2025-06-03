@@ -1,68 +1,64 @@
 <script setup>
-import { ref, onMounted } from "vue";
-import { register } from "swiper/element/bundle";
-import Swiper from "swiper/bundle";
-import "swiper/css/bundle";
 import ImageComponent from "./ImageComponent.vue";
+import { Swiper, SwiperSlide } from "swiper/vue";
 
-register();
+// Import Swiper styles
+import "swiper/css";
+import "swiper/css/navigation";
 
-const swiperRef = ref(null);
+// Import required modules
+import { Navigation } from "swiper/modules";
 
-onMounted(() => {
-  if (swiperRef.value) {
-    new Swiper(swiperRef.value, {
-      direction: "horizontal",
-      loop: true,
-      //Pagination peut être utile mais cela baisse la note d'accessibilité car trop petit
-      // pagination: {
-      //     el: '.swiper-pagination',
-      //     clickable: true
-      // },
-      navigation: {
-        nextEl: ".swiper-button-next",
-        prevEl: ".swiper-button-prev",
-      },
-      scrollbar: {
-        el: ".swiper-scrollbar",
-        draggable: true,
-      },
-    });
-  }
-});
-
-defineProps({
+const props = defineProps({
   images: {
     type: Array,
     required: true,
     default: () => [],
   },
 });
+
+const modules = [Navigation];
 </script>
 
 <template>
-  <div ref="swiperRef" class="swiper">
-    <div class="swiper-wrapper">
-      <div v-for="(image, index) in images" :key="index" class="swiper-slide">
+  <div ref="swiperRef" class="swiper-container">
+    <swiper :navigation="true" :modules="modules" class="swiper" :loop="true">
+      <swiper-slide v-for="(image, index) in images" :key="index">
         <ImageComponent :alt="image.alt" :image="image.src" />
-      </div>
-    </div>
-    <div class="swiper-pagination"></div>
-    <div class="swiper-button-prev"></div>
-    <div class="swiper-button-next"></div>
-    <div class="swiper-scrollbar"></div>
+      </swiper-slide>
+    </swiper>
   </div>
 </template>
 
 <style scoped>
-.swiper {
+.swiper-container {
   width: 100%;
   max-width: 500px;
   min-width: 200px;
   height: 300px;
   margin: auto;
+  position: relative;
 }
+
+.swiper {
+  width: 100%;
+  height: 100%;
+  user-select: none;
+}
+
 .swiper-slide {
   position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+  color: #fff;
+}
+
+.swiper-pagination {
+  bottom: 10px;
 }
 </style>

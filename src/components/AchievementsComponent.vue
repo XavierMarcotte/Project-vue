@@ -3,29 +3,29 @@ import SwipperComponent from "./kits/SwipperComponent.vue";
 
 const birdsImages = [
   {
-    src: "/swipper/birds/bird1.jpg",
+    src: "/swipper/birds/bird1.webp",
     alt: "Bird 1",
   },
   {
-    src: "/swipper/birds/bird2.jpg",
+    src: "/swipper/birds/bird2.webp",
     alt: "Bird 2",
   },
   {
-    src: "/swipper/birds/bird3.jpg",
+    src: "/swipper/birds/bird3.webp",
     alt: "Bird 3",
   },
 ];
 
 const landscapeImages = [
-  { src: "/swipper/landscape/landscape1.jpg", alt: "Landscape 1" },
-  { src: "/swipper/landscape/landscape2.jpg", alt: "Landscape 2" },
-  { src: "/swipper/landscape/landscape3.jpg", alt: "Landscape 3" },
+  { src: "/swipper/landscape/landscape1.webp", alt: "Landscape 1" },
+  { src: "/swipper/landscape/landscape2.webp", alt: "Landscape 2" },
+  { src: "/swipper/landscape/landscape3.webp", alt: "Landscape 3" },
 ];
 
 const mariageImages = [
-  { src: "/swipper/mariage/mariage1.jpg", alt: "Mariage 1" },
-  { src: "/swipper/mariage/mariage2.jpg", alt: "Mariage 2" },
-  { src: "/swipper/mariage/mariage3.jpg", alt: "Mariage 3" },
+  { src: "/swipper/mariage/mariage1.webp", alt: "Mariage 1" },
+  { src: "/swipper/mariage/mariage2.webp", alt: "Mariage 2" },
+  { src: "/swipper/mariage/mariage3.webp", alt: "Mariage 3" },
 ];
 
 defineProps({
