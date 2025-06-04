@@ -6,6 +6,7 @@ defineProps({
   },
 });
 
+import ConditionComponent from "./kits/ConditionComponent.vue";
 import ImageComponent from "./kits/ImageComponent.vue";
 
 const images = [
@@ -27,6 +28,7 @@ const images = [
         :image="image.src"
       />
     </div>
+    <ConditionComponent />
   </section>
 </template>
 

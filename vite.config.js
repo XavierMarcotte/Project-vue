@@ -4,7 +4,8 @@ import { defineConfig } from "vite";
 import vue from "@vitejs/plugin-vue";
 import vueDevTools from "vite-plugin-vue-devtools";
 import { visualizer } from "rollup-plugin-visualizer";
-
+import Components from "unplugin-vue-components/vite";
+import RekaResolver from "reka-ui/resolver";
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [
@@ -15,6 +16,10 @@ export default defineConfig({
       filename: "./stats.html", // ← ici, on le met dans la racine
       gzipSize: true,
       brotliSize: true,
+    }),
+    Components({
+      dts: true,
+      resolvers: [RekaResolver()],
     }),
   ],
   resolve: {
